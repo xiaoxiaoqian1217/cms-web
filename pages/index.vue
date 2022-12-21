@@ -11,19 +11,22 @@
           <RightCircleOutlined />
         </div>
       </template>
-      <template v-for="item in data.graphicIntros.data" :key="item.id">
-        <div class="carousel-wrap">
-          <img
-            class="home-poster object-center"
-            :src="`${strapiURL + item.attributes.image.data[0].attributes.url}`"
-            alt="..."
-          />
-          <div class="intros pl-46px">
-            <h3 class="lg:text-6xl text-5xl mb-4 font-black text-gray-900">
-              {{ item.attributes.title }}
+      <template v-for="item in data.page.data.attributes.blocks" :key="item.id">
+        <div class="carousel-inner relative">
+          <div class="carousel-item">
+            <img
+              class="home-poster object-center"
+              :src="`${strapiURL + item.image.data.attributes.url}`"
+              alt="..."
+            />
+          </div>
+
+          <div class="carousel-intros absolute pl-46px">
+            <h3 class="lg:text-6xl text-5xl mb-4 text-zinc-900">
+              {{ item.title }}
             </h3>
-            <div class="mb-8 px-2 leading-relaxed">
-              {{ item.attributes.subTitle }}
+            <div class="mb-8 px-2 leading-relaxed text-zinc-500">
+              {{ item.subTitle }}
             </div>
           </div>
         </div>
@@ -32,7 +35,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { allGraphicIntros } from "../graphql/query";
+import { pageData } from "../graphql/page";
 import { Carousel } from "ant-design-vue";
 import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons-vue";
 
@@ -53,7 +56,13 @@ const {
 //     }[];
 //   };
 // };
-const { data } = await useAsyncQuery(allGraphicIntros);
+
+const { data } = await useAsyncQuery(pageData);
+console.log(
+  "%c [ page ]-61",
+  "font-size:13px; background:pink; color:#bf2c9f;",
+  data
+);
 
 const onChange = (current: number) => {
   console.log(current);
@@ -61,9 +70,20 @@ const onChange = (current: number) => {
 </script>
 
 <style scoped>
-.carousel-wrap {
+.carousel-item {
+  width: 100vw;
+  background: no-repeat center center scroll;
+  min-height: 300px;
+  max-height: 100vh;
+  overflow: hidden;
 }
-.home-poster {
-  height: 100%;
+.carousel-item img {
+  width: 100%;
+}
+.carousel-intros {
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
 }
 </style>

@@ -7,7 +7,12 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AAvatar: typeof import('ant-design-vue/es')['Avatar']
+    ACard: typeof import('ant-design-vue/es')['Card']
+    ACardMeta: typeof import('ant-design-vue/es')['CardMeta']
     BaseForm: typeof import('./src/components/base-form/index.vue')['default']
+    EditOutlined: typeof import('@ant-design/icons-vue')['EditOutlined']
+    EllipsisOutlined: typeof import('@ant-design/icons-vue')['EllipsisOutlined']
     HtmlToCanvasWrap: typeof import('./src/components/html-to-canvas-wrap/index.vue')['default']
     LeftCircleOutlined: typeof import('@ant-design/icons-vue')['LeftCircleOutlined']
     PageContainer: typeof import('./src/components/page-container/index.vue')['default']
@@ -15,6 +20,7 @@ declare module '@vue/runtime-core' {
     RightCircleOutlined: typeof import('@ant-design/icons-vue')['RightCircleOutlined']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SettingOutlined: typeof import('@ant-design/icons-vue')['SettingOutlined']
     VanButton: typeof import('vant/es')['Button']
     VanCell: typeof import('vant/es')['Cell']
     VanList: typeof import('vant/es')['List']

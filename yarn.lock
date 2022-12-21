@@ -611,7 +611,7 @@
 
 "@nuxt/telemetry@^2.1.8":
   version "2.1.8"
-  resolved "https://registry.npmmirror.com/@nuxt/telemetry/-/telemetry-2.1.8.tgz"
+  resolved "https://registry.npmmirror.com/@nuxt/telemetry/-/telemetry-2.1.8.tgz#fb900ea2a61159ec8d81744bdfa8ed97debd9615"
   integrity sha512-WCHRrcPKRosuHQi8CD5WfjiXGAyjOWVJpK77xS6wlg8zwziBPCqmVIQdr4QpFTGFO1Nrh4z26l1VnivKy22KFQ==
   dependencies:
     "@nuxt/kit" "^3.0.0-rc.14"
