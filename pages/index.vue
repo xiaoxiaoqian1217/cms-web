@@ -21,10 +21,10 @@
             />
           </div>
 
-          <div class="carousel-intros absolute pl-46px">
-            <h3 class="lg:text-6xl text-5xl mb-4 text-zinc-900">
+          <div class="carousel-intros absolute pl-24">
+            <div class="lg:text-6xl text-5xl mb-4 text-zinc-900">
               {{ item.title }}
-            </h3>
+            </div>
             <div class="mb-8 px-2 leading-relaxed text-zinc-500">
               {{ item.subTitle }}
             </div>

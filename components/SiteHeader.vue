@@ -3,11 +3,25 @@
     <header class="max-h-60px px-1.5rem flex items-center g-gray-500">
       <div class="container mx-auto flex flex-col md:flex-row items-center">
         <!-- logo -->
-
+        <!-- <a-dropdown v-model:visible="visible">
+    <a class="ant-dropdown-link" @click.prevent>
+      Hover me
+      <DownOutlined />
+    </a>
+    <template #overlay>
+      <a-menu @click="handleMenuClick">
+        <a-menu-item key="1">Clicking me will not close the menu.</a-menu-item>
+        <a-menu-item key="2">Clicking me will not close the menu also.</a-menu-item>
+        <a-menu-item key="3">Clicking me will close the menu</a-menu-item>
+      </a-menu>
+    </template>
+  </a-dropdown> -->
         <div class="logo-wrap w-50">
           <img
             class="object-center w-[100%] h-10"
-            :src="`${strapiURL + navigation.logo.iconUrl.data.attributes.url}`"
+            :src="`${
+              strapiURL + siteHeaderData.logo.iconUrl.data.attributes.url
+            }`"
             alt="logo"
           />
         </div>
@@ -17,17 +31,23 @@
         <div
           class="text-xl mx-auto flex flex-wrap flex-col md:flex-row items-center"
         >
-          <div class="p-4" v-for="link in navigation.links" :key="link.href">
-            <NuxtLink :to="link.href">{{ link.label }} </NuxtLink>
+          <div
+            class="p-4"
+            v-for="navigation in siteHeaderData.navigations.data"
+            :key="navigation.attributes.href"
+          >
+            <NuxtLink :to="navigation.attributes.href"
+              >{{ navigation.attributes.label }}
+            </NuxtLink>
           </div>
         </div>
         <!-- 右侧导航 -->
         <div>
           <NuxtLink to="https://baidi.com">{{
-            navigation.loginButton.label
+            siteHeaderData.loginButton.label
           }}</NuxtLink>
           <!-- <NuxtLink to="https://baidi.com">{{
-          navigation.regButton.attributes.label
+          siteHeaderData.regButton.attributes.label
         }}</NuxtLink> -->
         </div>
       </div>
@@ -37,7 +57,7 @@
 
 <script setup lang="ts">
 const props = defineProps({
-  navigation: Array[Object],
+  siteHeaderData: Array[Object],
 });
 
 const {

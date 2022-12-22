@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SiteHeader :navigation="navigation"></SiteHeader>
+    <SiteHeader :siteHeaderData="siteHeader"></SiteHeader>
     <slot />
     <SiteFooter :footerData="footer"></SiteFooter>
   </div>
@@ -18,7 +18,7 @@ const unRefGlobalData = unref(data);
 const {
   global: {
     data: {
-      attributes: { navigation, footer },
+      attributes: { siteHeader, footer },
     },
   },
 } = unRefGlobalData;
@@ -26,7 +26,7 @@ const {
 console.log(
   "%c [ footer ]-22",
   "font-size:13px; background:pink; color:#bf2c9f;",
-  navigation,
+  siteHeader,
   footer
 );
 const navigations = ref([]);

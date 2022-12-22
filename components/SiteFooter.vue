@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <footer class="mt-24 pt-4 pb-8 xl:pt-8">
+  <div class="bg-gray-50">
+    <footer class="pt-24 pb-24 xl:pt-24">
       <div
         class="max-w-screen-lg xl:max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 text-gray-400 dark:text-gray-300"
       >

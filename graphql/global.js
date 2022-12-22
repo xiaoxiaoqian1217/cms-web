@@ -4,7 +4,7 @@ query  {
 	global {
     data{
       attributes{
-        navigation{
+        siteHeader{
           __typename
           leftButton {
             label
@@ -12,7 +12,7 @@ query  {
           loginButton {
             label
           }
-          ...on ComponentGlobalNavigation{
+           ...on ComponentGlobalNavigation{
             logo {
               __typename
               ...on ComponentShareLogo{
@@ -25,13 +25,30 @@ query  {
                 }
               }
             }
-            links {
-              label
-              href
-              target
-              isExternal
+            navigations{
+              data{
+                id
+                
+                attributes{
+                  label
+                  herf
+                  isExternal
+                  target
+                  children {
+                    data{
+                      attributes{
+                        label
+                        herf
+                      }
+                    }
+                  }
+                 
+                }
+              }
             }
+         
           }
+
                     
 
         }
