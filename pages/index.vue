@@ -58,11 +58,6 @@ const {
 // };
 
 const { data } = await useAsyncQuery(pageData);
-console.log(
-  "%c [ page ]-61",
-  "font-size:13px; background:pink; color:#bf2c9f;",
-  data
-);
 
 const onChange = (current: number) => {
   console.log(current);

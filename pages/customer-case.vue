@@ -93,11 +93,6 @@ const {
 const { data } = await useAsyncQuery(casePageData);
 
 const unRefPageData = unref(data);
-console.log(
-  "%c [ unRefPageData ]-42",
-  "font-size:13px; background:pink; color:#bf2c9f;",
-  unRefPageData
-);
 const {
   page: {
     data: {
@@ -106,21 +101,6 @@ const {
   },
 } = unRefPageData;
 const [, caseDetail, partner] = blocks;
-console.log(
-  "%c [ blocks ]-55",
-  "font-size:13px; background:pink; color:#bf2c9f;",
-  caseDetail.cards[0].image.data.attributes.url,
-  partner
-);
-
-// const {
-//   graphic_intros: { data: introsData },
-// } = caseDetail;
-// console.log(
-//   "%c [ introsData ]-55",
-//   "font-size:13px; background:pink; color:#bf2c9f;",
-//   introsData
-// );
 </script>
 
 <style scoped>
