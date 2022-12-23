@@ -31,14 +31,14 @@ query  {
                 
                 attributes{
                   label
-                  herf
+                  href
                   isExternal
                   target
                   children {
                     data{
                       attributes{
                         label
-                        herf
+                        href
                       }
                     }
                   }
