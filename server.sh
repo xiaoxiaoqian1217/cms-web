@@ -1,0 +1,1 @@
+/usr/local/lighthouse/softwares/nodejs/node/bin/npm

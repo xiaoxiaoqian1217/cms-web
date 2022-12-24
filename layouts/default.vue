@@ -2,7 +2,7 @@
   <div>
     <SiteHeader :siteHeaderData="siteHeader"></SiteHeader>
     <slot />
-    <SiteFooter :footerData="footer"></SiteFooter>
+    <!-- <SiteFooter :footerData="footer"></SiteFooter> -->
   </div>
 </template>
 <script setup lang="ts">
