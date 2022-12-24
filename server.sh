@@ -1,1 +1,1 @@
-/usr/local/lighthouse/softwares/nodejs/node/bin/npm
+/usr/local/lighthouse/softwares/nodejs/node/bin/npm run start
