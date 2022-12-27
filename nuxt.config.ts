@@ -35,19 +35,20 @@ export default defineNuxtConfig({
     "virtual:windi-base.css",
     // your stylesheets which overrides the preflight
     "~/assets/global.less",
+    "~/assets/blog.css",
     // windi extras
     "virtual:windi-components.css",
     "virtual:windi-utilities.css",
   ],
   runtimeConfig: {
     public: {
-      strapiURL: "http://localhost:1337" || process.env.STRAPI_URL,
+      strapiURL: "http://danyanpi.site:1337" || process.env.STRAPI_URL,
     },
   },
   apollo: {
     clients: {
       default: {
-        httpEndpoint: "http://localhost:1337/graphql",
+        httpEndpoint: "http://danyanpi.site:1337/graphql",
       },
     },
   },

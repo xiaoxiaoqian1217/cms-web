@@ -1,23 +1,25 @@
 <template>
-  <div class="g-gray-500">
+  <!-- class="bg-sky-300" -->
+  <div>
     <header class="max-h-60px px-1.5rem flex items-center g-gray-500">
       <div class="container mx-auto flex flex-col md:flex-row items-center">
         <!-- logo -->
         <div class="logo-wrap w-50">
-          <img
-            class="object-center w-[100%] h-10"
-            :src="`${
-              strapiURL + siteHeaderData.logo.iconUrl.data.attributes.url
-            }`"
-            alt="logo"
-          />
+          <template v-if="siteHeaderData.logo.iconUrl?.data?.attributes.url">
+            <img
+              class="object-center w-[100%] h-10"
+              :src="`${
+                strapiURL + siteHeaderData.logo.iconUrl.data.attributes.url
+              }`"
+              alt="logo"
+            />
+          </template>
+          <span>{{ siteHeaderData.logo.siteTitle }}</span>
         </div>
         <!-- <img /> -->
         <!-- logo.iconUrl.data.attributtes.url -->
         <!-- 顶部导航 -->
-        <div
-          class="text-xl mx-auto flex flex-wrap flex-col md:flex-row items-center"
-        >
+        <div class="mx-auto flex flex-wrap flex-col md:flex-row items-center">
           <div
             class="p-4"
             v-for="navigation in siteHeaderData.navigations.data"
@@ -30,13 +32,15 @@
                     {{ navigation.attributes.label }} <DownOutlined />
                   </a>
                   <template #overlay>
-                    <Menu @click="handleMenuClick">
+                    <Menu>
                       <div
                         v-for="subLink in navigation.attributes.children.data"
-                        :key="subLink.attributes.hre"
+                        :key="subLink.attributes.href"
                       >
                         <MenuItem key="1">
-                          <NuxtLink :to="subLink.attributes.href"
+                          <NuxtLink
+                            :to="subLink.attributes.href"
+                            :target="subLink.attributes.target"
                             >{{ subLink.attributes.label }}
                           </NuxtLink>
                         </MenuItem>
@@ -47,7 +51,9 @@
               </div>
             </template>
             <template v-else>
-              <NuxtLink :to="navigation.attributes.href"
+              <NuxtLink
+                :to="navigation.attributes.href"
+                :target="navigation.attributes.target"
                 >{{ navigation.attributes.label }}
               </NuxtLink>
             </template>
@@ -55,12 +61,17 @@
         </div>
         <!-- 右侧导航 -->
         <div>
-          <NuxtLink to="https://baidi.com">{{
-            siteHeaderData.loginButton.label
-          }}</NuxtLink>
-          <!-- <NuxtLink to="https://baidi.com">{{
-          siteHeaderData.regButton.attributes.label
-        }}</NuxtLink> -->
+          <NuxtLink :to="siteHeaderData.loginButton.href">
+            <div class="w-10 h-10 rounded-full">
+              <img
+                class="w-[100%]"
+                :src="`${
+                  strapiURL +
+                  siteHeaderData.loginButton.image.data.attributes.url
+                }`"
+              />
+            </div>
+          </NuxtLink>
         </div>
       </div>
     </header>
