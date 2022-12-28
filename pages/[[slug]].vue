@@ -7,6 +7,8 @@
         strapiURL + graphicIntro.attributes.image.data.attributes.url
       }`"
     ></PageHeader>
+    <!-- content -->
+    <ArticlesPreview></ArticlesPreview>
   </div>
 </template>
 <script lang="ts">
