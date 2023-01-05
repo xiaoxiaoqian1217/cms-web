@@ -36,11 +36,38 @@
             </ul>
             <div class="small text-center text-muted fst-italic">
               <span> Copyright &copy; XiaoXiaoQian Website 2022 </span>
-              <span
-                ><a href="https://beian.miit.gov.cn/" target="_blank"
-                  >粤ICP备2022137710号-1</a
-                ></span
-              >
+              <div class="flex items-center">
+                <div style="margin: 0 auto; padding: 20px 0">
+                  <a
+                    target="_blank"
+                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502009690"
+                    style="
+                      display: inline-block;
+                      text-decoration: none;
+                      height: 20px;
+                      line-height: 20px;
+                    "
+                    ><img :src="icpImg" style="float: left" />
+                    <p
+                      style="
+                        float: left;
+                        height: 20px;
+                        line-height: 20px;
+                        margin: 0px 0px 0px 5px;
+                        color: #939393;
+                      "
+                    >
+                      粤公网安备 44030502009690号
+                    </p>
+                    <a
+                      href="https://beian.miit.gov.cn/"
+                      class="text-muted ml-4"
+                      target="_blank"
+                      >粤ICP备2022137710号-1</a
+                    >
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -51,6 +78,7 @@
 
 <script lang="ts"></script>
 <script setup lang="ts">
+import icpImg from "@/assets/img/icp.png";
 import { blogGlobalQurey } from "../graphql/blogGlobal";
 
 const { data } = await useAsyncQuery(blogGlobalQurey);
